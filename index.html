@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lava Jato Beira Rio | Em breve</title>
+<meta name="description" content="O novo site do Lava Jato Beira Rio está a caminho. Em Coronel Fabriciano - MG.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%9A%97%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg-top:#0b2e4f;
+    --bg-bottom:#0f4c75;
+    --accent:#3fd0d4;
+    --text:#f4fbfc;
+    --muted:#bcd6e0;
+    --card-bg:rgba(255,255,255,0.06);
+    --card-border:rgba(255,255,255,0.14);
+  }
+  *{box-sizing:border-box;}
+  html,body{height:100%;}
+  body{
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color:var(--text);
+    background:radial-gradient(1200px 800px at 50% -10%, #146a8c 0%, var(--bg-top) 45%, var(--bg-bottom) 100%);
+    background-attachment:fixed;
+    overflow-x:hidden;
+    position:relative;
+  }
+  .drops span{
+    position:absolute;
+    bottom:-10%;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:rgba(63,208,212,0.35);
+    animation:rise linear infinite;
+  }
+  @keyframes rise{
+    to{ transform:translateY(-120vh); opacity:0; }
+  }
+  .card{
+    position:relative;
+    z-index:1;
+    max-width:560px;
+    width:100%;
+    background:var(--card-bg);
+    border:1px solid var(--card-border);
+    backdrop-filter:blur(6px);
+    border-radius:20px;
+    padding:48px 40px;
+    text-align:center;
+    box-shadow:0 20px 60px rgba(0,0,0,0.35);
+  }
+  .icon{
+    font-size:52px;
+    line-height:1;
+    margin-bottom:18px;
+    filter:drop-shadow(0 4px 10px rgba(0,0,0,0.35));
+  }
+  h1{
+    margin:0 0 6px;
+    font-size:28px;
+    font-weight:700;
+    letter-spacing:.3px;
+  }
+  .tag{
+    display:inline-block;
+    margin:6px 0 22px;
+    padding:6px 16px;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:#052430;
+    background:var(--accent);
+    border-radius:999px;
+  }
+  p.lead{
+    margin:0 0 28px;
+    font-size:16px;
+    line-height:1.6;
+    color:var(--muted);
+  }
+  .bar{
+    height:6px;
+    width:100%;
+    border-radius:999px;
+    background:rgba(255,255,255,0.12);
+    overflow:hidden;
+    margin-bottom:32px;
+  }
+  .bar span{
+    display:block;
+    height:100%;
+    width:40%;
+    border-radius:999px;
+    background:linear-gradient(90deg, var(--accent), #7ff0d6);
+    animation:load 2.4s ease-in-out infinite;
+  }
+  @keyframes load{
+    0%{ transform:translateX(-100%); }
+    50%{ transform:translateX(150%); }
+    100%{ transform:translateX(150%); }
+  }
+  .contact{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    font-size:15px;
+    color:var(--text);
+  }
+  .contact a{
+    color:var(--text);
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:12px 18px;
+    border-radius:12px;
+    border:1px solid var(--card-border);
+    background:rgba(255,255,255,0.05);
+    transition:background .2s ease, transform .2s ease;
+  }
+  .contact a:hover{
+    background:rgba(255,255,255,0.12);
+    transform:translateY(-1px);
+  }
+  .addr{
+    margin-top:22px;
+    font-size:13px;
+    color:var(--muted);
+  }
+  footer{
+    margin-top:28px;
+    font-size:12px;
+    color:rgba(255,255,255,0.4);
+  }
+</style>
+</head>
+<body>
+
+<div class="drops" aria-hidden="true"></div>
+
+<main class="card">
+  <div class="icon">🚗💧</div>
+  <h1>Lava Jato Beira Rio</h1>
+  <span class="tag">Site em construção</span>
+  <p class="lead">Estamos preparando algo novo por aqui. Em breve você vai poder agendar sua lavagem, ver nossos serviços e promoções direto pelo site.</p>
+
+  <div class="bar" aria-hidden="true"><span></span></div>
+
+  <div class="contact">
+    <a href="tel:+5531987188203">📞 (31) 98718-8203</a>
+    <a href="https://wa.me/5531987188203" target="_blank" rel="noopener">💬 Chamar no WhatsApp</a>
+    <a href="https://maps.app.goo.gl/u4JMRQ2kPdUL1wEH8" target="_blank" rel="noopener">📍 Como chegar</a>
+  </div>
+
+  <p class="addr">R. Juscelino Kubitscheck, 126 — Coronel Fabriciano, MG</p>
+
+  <footer>&copy; <span id="year"></span> Lava Jato Beira Rio. Todos os direitos reservados.</footer>
+</main>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // gera gotinhas subindo, decorativo
+  var container = document.querySelector('.drops');
+  for (var i = 0; i < 22; i++) {
+    var d = document.createElement('span');
+    var left = Math.random() * 100;
+    var duration = 6 + Math.random() * 8;
+    var delay = Math.random() * 10;
+    var size = 4 + Math.random() * 6;
+    d.style.left = left + 'vw';
+    d.style.width = size + 'px';
+    d.style.height = size + 'px';
+    d.style.animationDuration = duration + 's';
+    d.style.animationDelay = delay + 's';
+    container.appendChild(d);
+  }
+</script>
+
+</body>
+</html>
