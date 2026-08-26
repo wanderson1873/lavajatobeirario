@@ -17,3 +17,5 @@ npx serve .
 ## Deploy
 
 Este projeto inclui um `Dockerfile` que serve os arquivos estáticos com Nginx — pronto para deploy no Easypanel (ou qualquer plataforma que builde a partir de um Dockerfile).
+
+<!-- teste de conexão via Claude Code em 2026-08-26 -->
