@@ -499,6 +499,10 @@ p.section-lead{
 }
 .icon-line svg{ width:100%; height:100%; stroke:currentColor; fill:none; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
 
+/* Ícone minimalista do WhatsApp (usado dentro de botões/linhas) */
+.icon-wa{ width:18px; height:18px; flex:none; stroke:currentColor; fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+.icon-phone{ width:18px; height:18px; flex:none; stroke:currentColor; fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+
 /* ---------- Simple row-style service list (home preview) ---------- */
 .service-rows{ display:flex; flex-direction:column; gap:0; border-top:1px solid var(--border); }
 .service-row{
