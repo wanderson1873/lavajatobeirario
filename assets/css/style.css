@@ -144,7 +144,6 @@ p.section-lead{
   text-decoration:none;
   color:#fff;
 }
-.brand-icon{ height:42px; width:42px; flex:none; }
 .brand-name{
   display:flex;
   flex-direction:column;
