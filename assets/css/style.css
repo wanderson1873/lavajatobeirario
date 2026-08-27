@@ -506,6 +506,7 @@ p.section-lead{
 
 /* Ícone minimalista do WhatsApp (usado dentro de botões/linhas) */
 .icon-wa{ width:18px; height:18px; flex:none; stroke:currentColor; fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+.icon-wa-lg{ width:26px; height:26px; flex:none; stroke:currentColor; fill:none; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
 .icon-phone{ width:18px; height:18px; flex:none; stroke:currentColor; fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
 
 /* ---------- Simple row-style service list (home preview) ---------- */
