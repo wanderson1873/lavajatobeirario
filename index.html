@@ -51,12 +51,6 @@
     <p class="lead">Lavagem completa, higienização interna e o cuidado premium da linha Vonixx. Agende em segundos pelo WhatsApp.</p>
     <div class="hero-actions">
       <a class="btn btn-whatsapp" href="https://wa.me/5531987188203?text=Ol%C3%A1!%20Quero%20agendar%20uma%20lavagem." target="_blank" rel="noopener">💬 Agendar no WhatsApp</a>
-      <a class="btn btn-outline" href="servicos.html">Ver serviços e preços</a>
-    </div>
-    <div class="hero-meta">
-      <span>📞 (31) 98718-8203</span>
-      <span>🕐 Seg–Sáb, 7h às 17h</span>
-      <span>📍 R. Juscelino Kubitscheck, 126</span>
     </div>
   </div>
 </section>
@@ -68,22 +62,22 @@
     <p class="section-lead">Da aspiração rápida à lavagem geral completa, cada serviço é feito com atenção aos detalhes.</p>
     <div class="grid grid-4">
       <div class="card feature-card">
-        <div class="icon">🧴</div>
+        <div class="icon-line"><svg viewBox="0 0 24 24"><path d="M12 3c3 3.5 5 6.7 5 9.3A5 5 0 0 1 7 12.3C7 9.7 9 6.5 12 3Z"/></svg></div>
         <h3>Produtos de qualidade</h3>
         <p>Shampoo automotivo, desengraxantes e a linha Vonixx para um acabamento premium.</p>
       </div>
       <div class="card feature-card">
-        <div class="icon">⏱️</div>
+        <div class="icon-line"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.3"/><path d="M12 7.5V12l3 2"/></svg></div>
         <h3>Rapidez</h3>
         <p>Serviços ágeis, sem abrir mão do capricho em cada detalhe do seu carro ou moto.</p>
       </div>
       <div class="card feature-card">
-        <div class="icon">🛡️</div>
+        <div class="icon-line"><svg viewBox="0 0 24 24"><path d="M12 3.5 19 6v6c0 4.2-2.9 7.4-7 8.5-4.1-1.1-7-4.3-7-8.5V6Z"/></svg></div>
         <h3>Cuidado com o veículo</h3>
         <p>Proteção de componentes sensíveis e atenção redobrada em cada etapa da lavagem.</p>
       </div>
       <div class="card feature-card">
-        <div class="icon">💬</div>
+        <div class="icon-line"><svg viewBox="0 0 24 24"><path d="M4 5.5h16v10H9l-4 4v-4H4Z"/></svg></div>
         <h3>Agendamento fácil</h3>
         <p>Fale com a gente pelo WhatsApp e já garanta seu horário.</p>
       </div>
@@ -96,27 +90,32 @@
     <span class="eyebrow">Serviços</span>
     <h2 class="section-title">Alguns dos nossos serviços</h2>
     <p class="section-lead">Da aspiração simples à lavagem geral completa. Veja a lista completa com todos os preços.</p>
-    <div class="grid grid-3">
-      <div class="card service-card">
-        <div class="icon">🌀</div>
-        <h3>Ducha</h3>
-        <div class="price">a partir de R$ 30</div>
-        <p>Lavagem externa com shampoo automotivo, secagem e pretinho nos pneus.</p>
-      </div>
-      <div class="card service-card">
-        <span class="badge">Mais completo</span>
-        <div class="icon">🚿</div>
-        <h3>Lavagem geral</h3>
-        <div class="price">a partir de R$ 250</div>
-        <p>Interna e externa, higienização, aspiração, motor e parte inferior. O serviço mais completo da casa.</p>
-      </div>
-      <div class="card service-card">
-        <div class="icon">🧽</div>
-        <h3>Meia sola</h3>
-        <div class="price">a partir de R$ 70 <small>· carro pequeno</small></div>
-        <p>Lavagem interna e externa completa, com aspiração, tapetes, painel, vidros e pretinho nos pneus.</p>
+
+    <div class="size-toggle-wrap">
+      <div class="size-toggle">
+        <button type="button" class="active" data-size="pequeno">Carro Pequeno</button>
+        <button type="button" data-size="grande">Carro Grande</button>
       </div>
     </div>
+
+    <div class="service-rows">
+      <div class="service-row">
+        <span class="icon">💦</span>
+        <div class="info"><h3>Ducha</h3><p>Lavagem externa com shampoo automotivo, secagem e pretinho nos pneus.</p></div>
+        <div class="row-price">a partir de R$ 30</div>
+      </div>
+      <div class="service-row">
+        <span class="icon">🚙</span>
+        <div class="info"><h3>Meia sola <small style="font-weight:400;color:var(--text-muted);">· mais pedido</small></h3><p>Lavagem interna e externa completa, com aspiração, tapetes, painel, vidros e pretinho nos pneus.</p></div>
+        <div class="row-price" data-price-pequeno="a partir de R$ 70" data-price-grande="a partir de R$ 90">a partir de R$ 70</div>
+      </div>
+      <div class="service-row">
+        <span class="icon">🚿</span>
+        <div class="info"><h3>Lavagem geral <small style="font-weight:400;color:var(--text-muted);">· mais completo</small></h3><p>Interna e externa, higienização, aspiração, motor e parte inferior. O serviço mais completo da casa.</p></div>
+        <div class="row-price">a partir de R$ 250</div>
+      </div>
+    </div>
+
     <div style="text-align:center;margin-top:36px;">
       <a class="btn btn-outline-navy" href="servicos.html">Ver todos os serviços e preços</a>
     </div>
@@ -171,7 +170,6 @@
     <p>Chame agora no WhatsApp e agende seu horário.</p>
     <div class="hero-actions">
       <a class="btn btn-whatsapp" href="https://wa.me/5531987188203?text=Ol%C3%A1!%20Quero%20agendar%20uma%20lavagem." target="_blank" rel="noopener">💬 Chamar no WhatsApp</a>
-      <a class="btn btn-outline" href="tel:+5531987188203">📞 (31) 98718-8203</a>
     </div>
   </div>
 </section>
@@ -197,9 +195,19 @@
         <h4>Contato</h4>
         <ul class="footer-links">
           <li><a href="tel:+5531987188203">📞 (31) 98718-8203</a></li>
-          <li><a href="https://wa.me/5531987188203" target="_blank" rel="noopener">💬 WhatsApp</a></li>
           <li><a href="https://maps.app.goo.gl/u4JMRQ2kPdUL1wEH8" target="_blank" rel="noopener">📍 R. Juscelino Kubitscheck, 126 — Coronel Fabriciano, MG</a></li>
-          <li>🕐 Seg–Sáb, 7h às 17h</li>
+          <li>
+            🕐 Horário
+            <ul class="footer-hours">
+              <li><span>Segunda-feira</span><span>7h às 17h</span></li>
+              <li><span>Terça-feira</span><span>7h às 17h</span></li>
+              <li><span>Quarta-feira</span><span>7h às 17h</span></li>
+              <li><span>Quinta-feira</span><span>7h às 17h</span></li>
+              <li><span>Sexta-feira</span><span>7h às 17h</span></li>
+              <li><span>Sábado</span><span>7h às 17h</span></li>
+              <li class="closed"><span>Domingo</span><span>Fechado</span></li>
+            </ul>
+          </li>
         </ul>
       </div>
     </div>

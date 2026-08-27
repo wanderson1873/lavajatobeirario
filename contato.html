@@ -52,14 +52,13 @@
   <div class="container contact-grid">
     <div>
       <div class="card contact-card">
-        <a class="contact-row" href="tel:+5531987188203">
+        <div class="contact-row">
           <span class="ic">📞</span>
-          <span><strong>Telefone</strong><span>(31) 98718-8203</span></span>
-        </a>
-        <a class="contact-row" href="https://wa.me/5531987188203?text=Ol%C3%A1!%20Quero%20agendar%20uma%20lavagem." target="_blank" rel="noopener">
-          <span class="ic">💬</span>
-          <span><strong>WhatsApp</strong><span>Fale conosco e agende seu horário</span></span>
-        </a>
+          <a href="tel:+5531987188203" style="text-decoration:none;color:inherit;flex:1;min-width:0;">
+            <strong>Telefone / WhatsApp</strong><span>(31) 98718-8203</span>
+          </a>
+          <a class="wa-inline" href="https://wa.me/5531987188203?text=Ol%C3%A1!%20Quero%20agendar%20uma%20lavagem." target="_blank" rel="noopener" aria-label="Chamar no WhatsApp">💬</a>
+        </div>
         <a class="contact-row" href="https://maps.app.goo.gl/u4JMRQ2kPdUL1wEH8" target="_blank" rel="noopener">
           <span class="ic">📍</span>
           <span><strong>Endereço</strong><span>R. Juscelino Kubitscheck, 126 — Coronel Fabriciano, MG</span></span>
@@ -68,6 +67,7 @@
 
       <div class="card" style="padding:28px;margin-top:24px;">
         <h3 style="margin-bottom:16px;">Horário de funcionamento</h3>
+        <div class="status-pill" data-open-status></div>
         <table class="hours-table">
           <tr data-day="1"><td>Segunda-feira</td><td>7h às 17h</td></tr>
           <tr data-day="2"><td>Terça-feira</td><td>7h às 17h</td></tr>
@@ -127,9 +127,19 @@
         <h4>Contato</h4>
         <ul class="footer-links">
           <li><a href="tel:+5531987188203">📞 (31) 98718-8203</a></li>
-          <li><a href="https://wa.me/5531987188203" target="_blank" rel="noopener">💬 WhatsApp</a></li>
           <li><a href="https://maps.app.goo.gl/u4JMRQ2kPdUL1wEH8" target="_blank" rel="noopener">📍 R. Juscelino Kubitscheck, 126 — Coronel Fabriciano, MG</a></li>
-          <li>🕐 Seg–Sáb, 7h às 17h</li>
+          <li>
+            🕐 Horário
+            <ul class="footer-hours">
+              <li><span>Segunda-feira</span><span>7h às 17h</span></li>
+              <li><span>Terça-feira</span><span>7h às 17h</span></li>
+              <li><span>Quarta-feira</span><span>7h às 17h</span></li>
+              <li><span>Quinta-feira</span><span>7h às 17h</span></li>
+              <li><span>Sexta-feira</span><span>7h às 17h</span></li>
+              <li><span>Sábado</span><span>7h às 17h</span></li>
+              <li class="closed"><span>Domingo</span><span>Fechado</span></li>
+            </ul>
+          </li>
         </ul>
       </div>
     </div>

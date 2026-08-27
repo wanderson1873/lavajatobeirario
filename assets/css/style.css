@@ -10,7 +10,9 @@
   --teal-light:#7ff0d6;
   --gold:#caa04d;
   --gold-light:#f0d9a0;
-  --whatsapp:#25d366;
+  --whatsapp:#2f9e63;
+  --status-open:#2f9e63;
+  --status-closed:#c0392b;
 
   --bg:#f4f8fa;
   --bg-alt:#e9f2f5;
@@ -97,9 +99,9 @@ p.section-lead{
 .btn-whatsapp{
   background:var(--whatsapp);
   color:#fff;
-  box-shadow:0 10px 24px rgba(37,211,102,0.35);
+  box-shadow:0 6px 16px rgba(47,158,99,0.22);
 }
-.btn-whatsapp:hover{ box-shadow:0 14px 30px rgba(37,211,102,0.45); }
+.btn-whatsapp:hover{ box-shadow:0 8px 20px rgba(47,158,99,0.3); }
 .btn-outline{
   background:transparent;
   border-color:rgba(255,255,255,0.4);
@@ -448,17 +450,109 @@ p.section-lead{
   right:20px;
   bottom:20px;
   z-index:200;
-  width:58px; height:58px;
+  width:54px; height:54px;
   border-radius:50%;
   background:var(--whatsapp);
   display:flex; align-items:center; justify-content:center;
-  font-size:28px;
+  font-size:24px;
   color:#fff;
   text-decoration:none;
-  box-shadow:0 10px 26px rgba(37,211,102,0.5);
+  box-shadow:0 8px 18px rgba(47,158,99,0.3);
   transition:transform .15s ease;
 }
 .wa-float:hover{ transform:scale(1.06); }
+
+/* ---------- Toggle Carro Pequeno / Carro Grande ---------- */
+.size-toggle{
+  display:inline-flex;
+  margin:0 auto 36px;
+  padding:4px;
+  background:var(--bg-alt);
+  border:1px solid var(--border);
+  border-radius:999px;
+  gap:4px;
+}
+.size-toggle-wrap{ text-align:center; }
+.size-toggle button{
+  border:none;
+  background:transparent;
+  padding:9px 20px;
+  border-radius:999px;
+  font-size:13.5px;
+  font-weight:600;
+  color:var(--text-muted);
+  cursor:pointer;
+  transition:background .15s ease, color .15s ease;
+}
+.size-toggle button.active{
+  background:var(--surface);
+  color:var(--navy-800);
+  box-shadow:0 4px 10px rgba(11,46,79,0.1);
+}
+
+/* ---------- Minimal line icons (features) ---------- */
+.icon-line{
+  width:36px; height:36px;
+  margin:0 auto 14px;
+  color:var(--navy-800);
+}
+.icon-line svg{ width:100%; height:100%; stroke:currentColor; fill:none; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+
+/* ---------- Simple row-style service list (home preview) ---------- */
+.service-rows{ display:flex; flex-direction:column; gap:0; border-top:1px solid var(--border); }
+.service-row{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  padding:20px 4px;
+  border-bottom:1px solid var(--border);
+}
+.service-row .icon{ font-size:24px; flex:none; width:32px; text-align:center; }
+.service-row .info{ flex:1; min-width:0; }
+.service-row .info h3{ font-size:16px; margin:0 0 2px; }
+.service-row .info p{ margin:0; font-size:13.5px; color:var(--text-muted); }
+.service-row .row-price{ flex:none; font-weight:700; color:var(--navy-800); font-size:15px; text-align:right; }
+.service-row .row-price small{ display:block; font-weight:400; color:var(--text-muted); font-size:11.5px; }
+@media (max-width:600px){
+  .service-row{ align-items:flex-start; }
+  .service-row .row-price{ font-size:13.5px; }
+}
+
+/* ---------- Status pill (aberto agora / fechado) ---------- */
+.status-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 16px;
+  border-radius:999px;
+  font-size:13.5px;
+  font-weight:700;
+  margin-bottom:18px;
+}
+.status-pill .dot{ width:9px; height:9px; border-radius:50%; flex:none; }
+.status-pill.is-open{ background:rgba(47,158,99,0.12); color:var(--status-open); }
+.status-pill.is-open .dot{ background:var(--status-open); box-shadow:0 0 0 4px rgba(47,158,99,0.18); }
+.status-pill.is-closed{ background:rgba(192,57,43,0.1); color:var(--status-closed); }
+.status-pill.is-closed .dot{ background:var(--status-closed); box-shadow:0 0 0 4px rgba(192,57,43,0.15); }
+
+/* ---------- Inline WhatsApp icon button (ao lado do telefone) ---------- */
+.wa-inline{
+  flex:none;
+  width:30px; height:30px;
+  border-radius:50%;
+  background:var(--whatsapp);
+  color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  font-size:15px;
+  text-decoration:none;
+  margin-left:auto;
+}
+
+/* ---------- Footer hours list ---------- */
+.footer-hours{ list-style:none; margin:8px 0 0; padding:0; display:grid; gap:6px; }
+.footer-hours li{ display:flex; justify-content:space-between; gap:12px; font-size:12.5px; color:#9fb9c4; }
+.footer-hours li span:last-child{ color:#cfe3ea; font-variant-numeric:tabular-nums; }
+.footer-hours li.closed span:last-child{ color:#e08a80; }
 
 @media (max-width:600px){
   .hero h1{ font-size:32px; }

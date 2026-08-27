@@ -50,6 +50,13 @@
 
 <section>
   <div class="container">
+    <div class="size-toggle-wrap">
+      <div class="size-toggle">
+        <button type="button" class="active" data-size="pequeno">Carro Pequeno</button>
+        <button type="button" data-size="grande">Carro Grande</button>
+      </div>
+    </div>
+
     <div class="grid grid-3">
 
       <div class="card service-card">
@@ -57,7 +64,6 @@
         <h3>Aspiração</h3>
         <div class="price">R$ 20</div>
         <p>Aspiração interna de bancos, carpetes, tapetes e porta-malas, removendo poeira, areia e sujeiras soltas do interior do veículo. Serviço exclusivamente de aspiração.</p>
-        <a class="btn btn-whatsapp" href="https://wa.me/5531987188203?text=Ol%C3%A1!%20Quero%20agendar%20o%20servi%C3%A7o%20de%20Aspira%C3%A7%C3%A3o." target="_blank" rel="noopener">Agendar</a>
       </div>
 
       <div class="card service-card">
@@ -65,8 +71,6 @@
         <h3>Higienização interna</h3>
         <div class="price">R$ 40 <small>· limpeza interna detalhada</small></div>
         <p>Aspiração de bancos, carpetes e porta-malas, lavagem dos tapetes, limpeza de painel, portas e detalhes com pano e pincel. Inclui aplicação de silicone líquido para acabamento e hidratação de superfícies internas.</p>
-        <p class="note">Não inclui: remoção de bancos, lavagem profunda dos bancos ou tratamento profundo de bancos de couro.</p>
-        <a class="btn btn-whatsapp" href="https://wa.me/5531987188203?text=Ol%C3%A1!%20Quero%20agendar%20a%20Higieniza%C3%A7%C3%A3o%20interna." target="_blank" rel="noopener">Agendar</a>
       </div>
 
       <div class="card service-card">
@@ -74,7 +78,6 @@
         <h3>Ducha</h3>
         <div class="price">a partir de R$ 30</div>
         <p>Lavagem externa do veículo com shampoo automotivo, incluindo carroceria, rodas, pneus e caixas de roda. O veículo é seco após a lavagem e recebe aplicação de pretinho nos pneus.</p>
-        <a class="btn btn-whatsapp" href="https://wa.me/5531987188203?text=Ol%C3%A1!%20Quero%20agendar%20a%20Ducha." target="_blank" rel="noopener">Agendar</a>
       </div>
 
       <div class="card service-card">
@@ -82,16 +85,13 @@
         <h3>Lavagem de motor</h3>
         <div class="price">a partir de R$ 120 <small>· carros pequenos</small></div>
         <p>Lavagem completa do cofre do motor com produtos desengraxantes para remoção de óleo, graxa e sujeiras acumuladas. Componentes elétricos sensíveis recebem proteção durante o serviço e, quando necessário, é realizado acabamento após a limpeza.</p>
-        <a class="btn btn-whatsapp" href="https://wa.me/5531987188203?text=Ol%C3%A1!%20Quero%20agendar%20a%20Lavagem%20de%20motor." target="_blank" rel="noopener">Agendar</a>
       </div>
 
       <div class="card service-card">
         <div class="icon">🚙</div>
         <h3>Meia Sola — Lavagem Interna e Externa</h3>
-        <div class="price">a partir de R$ 70 <small>· carro pequeno</small></div>
-        <div class="price">a partir de R$ 90 <small>· carro maior</small></div>
+        <div class="price" data-price-pequeno="a partir de R$ 70 · carro pequeno" data-price-grande="a partir de R$ 90 · carro maior">a partir de R$ 70 · carro pequeno</div>
         <p>Lavagem interna e externa completa: carroceria, rodas, pneus e caixas de roda, além de aspiração, lavagem dos tapetes, limpeza de painel, portas, vidros e detalhes internos. Finalização externa com secagem e aplicação de pretinho nos pneus.</p>
-        <a class="btn btn-whatsapp" href="https://wa.me/5531987188203?text=Ol%C3%A1!%20Quero%20agendar%20a%20Meia%20Sola%20(lavagem%20interna%20e%20externa)." target="_blank" rel="noopener">Agendar</a>
       </div>
 
       <div class="card service-card">
@@ -100,7 +100,6 @@
         <h3>Lavagem geral</h3>
         <div class="price">a partir de R$ 250 <small>· carros pequenos</small></div>
         <p>O serviço mais completo do Lava Jato Beira Rio: lavagem interna e externa, higienização interna, aspiração, lavagem do motor e lavagem da parte inferior do carro. Inclui carroceria, rodas, pneus, caixas de roda, painel, portas, vidros, tapetes e detalhes internos.</p>
-        <a class="btn btn-whatsapp" href="https://wa.me/5531987188203?text=Ol%C3%A1!%20Quero%20agendar%20a%20Lavagem%20geral." target="_blank" rel="noopener">Agendar</a>
       </div>
 
       <div class="card service-card">
@@ -108,7 +107,6 @@
         <h3>Lavagem de moto</h3>
         <div class="price">R$ 40</div>
         <p>Lavagem externa da motocicleta com produtos de limpeza adequados para remoção de sujeira, óleo e resíduos acumulados. Inclui limpeza das principais partes da moto e acabamento com aplicação de pretinho nas áreas apropriadas.</p>
-        <a class="btn btn-whatsapp" href="https://wa.me/5531987188203?text=Ol%C3%A1!%20Quero%20agendar%20a%20Lavagem%20de%20moto." target="_blank" rel="noopener">Agendar</a>
       </div>
 
     </div>
@@ -160,9 +158,19 @@
         <h4>Contato</h4>
         <ul class="footer-links">
           <li><a href="tel:+5531987188203">📞 (31) 98718-8203</a></li>
-          <li><a href="https://wa.me/5531987188203" target="_blank" rel="noopener">💬 WhatsApp</a></li>
           <li><a href="https://maps.app.goo.gl/u4JMRQ2kPdUL1wEH8" target="_blank" rel="noopener">📍 R. Juscelino Kubitscheck, 126 — Coronel Fabriciano, MG</a></li>
-          <li>🕐 Seg–Sáb, 7h às 17h</li>
+          <li>
+            🕐 Horário
+            <ul class="footer-hours">
+              <li><span>Segunda-feira</span><span>7h às 17h</span></li>
+              <li><span>Terça-feira</span><span>7h às 17h</span></li>
+              <li><span>Quarta-feira</span><span>7h às 17h</span></li>
+              <li><span>Quinta-feira</span><span>7h às 17h</span></li>
+              <li><span>Sexta-feira</span><span>7h às 17h</span></li>
+              <li><span>Sábado</span><span>7h às 17h</span></li>
+              <li class="closed"><span>Domingo</span><span>Fechado</span></li>
+            </ul>
+          </li>
         </ul>
       </div>
     </div>
