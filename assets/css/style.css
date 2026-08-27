@@ -144,10 +144,16 @@ p.section-lead{
   text-decoration:none;
   color:#fff;
 }
-.brand-logo{ height:36px; width:auto; border-radius:8px; }
-.brand-fallback{ font-size:26px; line-height:1; }
-.brand-name{ font-weight:700; font-size:16px; letter-spacing:.2px; }
-.brand-name small{ display:block; font-weight:400; font-size:11px; color:var(--teal-light); letter-spacing:.08em; text-transform:uppercase; }
+.brand-icon{ height:38px; width:38px; flex:none; }
+.brand-name{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  line-height:1.15;
+}
+.brand-name .sub{ font-size:10.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--teal-light); }
+.brand-name .main{ font-size:19px; font-weight:800; letter-spacing:.2px; color:#fff; }
 
 .nav-links{
   display:flex;
