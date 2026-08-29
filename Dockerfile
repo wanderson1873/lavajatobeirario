@@ -1,9 +1,12 @@
 FROM nginx:alpine
 
-# Remove a página padrão do nginx
+# Remove a pagina padrao do nginx
 RUN rm -rf /usr/share/nginx/html/*
 
-# Copia o site estático
+# Configuracao: pagina 404 do site, cache e gzip
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Copia o site estatico
 COPY . /usr/share/nginx/html
 
 EXPOSE 80

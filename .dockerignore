@@ -1,6 +1,8 @@
 .git
 .gitignore
 README.md
+Dockerfile
+nginx.conf
 design/
 *.dc.html
 canvas.json
