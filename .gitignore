@@ -1,0 +1,13 @@
+# sistema
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# editores
+.vscode/
+.idea/
+
+# artefatos do canvas de design (nao fazem parte do site)
+*.dc.html
+canvas.json
+site-lava-jato-beira-rio.html
