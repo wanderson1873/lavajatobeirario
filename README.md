@@ -44,6 +44,7 @@ não bate com a URL servida confunde o Google.
    | `rodas-e-pneus.webp` | home + galeria |
    | `acabamento-vonixx.webp` | home + galeria + Vonixx "Aplicação caprichada" |
    | `higienizacao-interna.webp` | home + galeria |
+   | `lavagem-externa.webp` | galeria |
    | `lavagem-de-motor.webp` | galeria |
    | `secagem-acabamento.webp` | galeria |
    | `interior-real.webp` | galeria — **foto real do box** |
