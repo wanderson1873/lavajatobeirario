@@ -8,7 +8,7 @@ RUN rm -rf /usr/share/nginx/html/*
 COPY . /usr/share/nginx/html
 
 # Move a config para o lugar certo e tira os arquivos de build do diretorio publico
-RUN mv /usr/share/nginx/html/nginx.conf /etc/nginx/conf.d/default.conf && rm -f /usr/share/nginx/html/Dockerfile
+RUN mv /usr/share/nginx/html/nginx.conf /etc/nginx/conf.d/default.conf && rm -f /usr/share/nginx/html/Dockerfile /usr/share/nginx/html/.dockerignore
 
 EXPOSE 80
 
