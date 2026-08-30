@@ -3,11 +3,12 @@ FROM nginx:alpine
 # Remove a pagina padrao do nginx
 RUN rm -rf /usr/share/nginx/html/*
 
-# Configuracao: pagina 404 do site, cache e gzip
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-# Copia o site estatico
+# Copia o site. O nginx.conf precisa vir junto no contexto do build,
+# por isso ele NAO pode entrar no .dockerignore.
 COPY . /usr/share/nginx/html
+
+# Move a config para o lugar certo e tira os arquivos de build do diretorio publico
+RUN mv /usr/share/nginx/html/nginx.conf /etc/nginx/conf.d/default.conf && rm -f /usr/share/nginx/html/Dockerfile
 
 EXPOSE 80
 
