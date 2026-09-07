@@ -24,10 +24,24 @@ assets/img/         favicon + fotos do lava jato
 O `Dockerfile` serve os arquivos estáticos com Nginx — é o que a VPS (Easypanel) builda.
 O `.dockerignore` mantém fora da imagem o README, o `.git` e os arquivos de design.
 
+### Uma URL só para cada página
+
 O site inteiro aponta para **`https://lavajatobeirario.com.br`** (sem `www`) nas URLs
-canônicas, no `sitemap.xml`, no `robots.txt` e nos dados estruturados. Se a VPS redirecionar
-o domínio raiz para `www`, troque para a versão com `www` nesses arquivos — canonical que
-não bate com a URL servida confunde o Google.
+canônicas, no `sitemap.xml`, no `robots.txt` e nos dados estruturados. Página que responde
+em dois endereços diferentes o Google trata como duplicada e deixa uma delas fora do
+índice, então o `nginx.conf` fecha os dois caminhos alternativos:
+
+- `www.lavajatobeirario.com.br/...` → 301 para o mesmo caminho sem `www`.
+- `/index.html` → 301 para `/`. Os links internos também apontam para `/`, não para
+  `index.html` — era isso que fazia o Search Console listar a home como
+  *"Página alternativa com tag canônica adequada"*.
+
+O redirecionamento `http://` → `https://` é do proxy da VPS (Easypanel/Traefik) e é
+esperado: é ele que aparece no relatório como *"Página com redirecionamento"*.
+
+**No painel da VPS:** cadastre também o domínio `www.lavajatobeirario.com.br` e emita
+certificado para ele. Sem isso o `www` responde com erro de certificado antes de o Nginx
+conseguir redirecionar.
 
 ## Ainda pendente
 
