@@ -72,6 +72,7 @@ conseguir redirecionar.
    | `lavagem-de-motor.webp` | galeria |
    | `secagem-acabamento.webp` | galeria |
    | `interior-real.webp` | galeria — **foto real do box** |
+   | `fachada-lava-jato-beira-rio.webp` | home, seção "Quem somos" + JSON-LD — **foto real da fachada** (placas dos clientes desfocadas) |
    | `lavagem-de-moto.webp` | galeria |
    | `roda-detalhe.webp` | fundo do topo da página Fotos |
    | `vonixx-carro-brilhando.webp` | banner da página Vonixx (1600×900) |

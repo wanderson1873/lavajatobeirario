@@ -198,6 +198,7 @@
     if (el.closest('.faixa-cta')) return 'chamada-final';
     if (el.closest('.faixa-premium')) return 'faixa-vonixx';
     if (el.closest('.card-contato')) return 'cartao-contato';
+    if (el.closest('.quem-somos')) return 'quem-somos';
     if (el.closest('.rodape')) return 'rodape';
     return 'outro';
   }
