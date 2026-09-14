@@ -217,7 +217,8 @@ na aba escura aparece o branco — nenhuma cor sozinha passa bem nos dois.
 ## Dados do negócio usados no site
 
 - Telefone / WhatsApp: (31) 98718-8203 — links `wa.me/5531987188203`
-- Endereço: R. Juscelino Kubitscheck, 126 — Coronel Fabriciano, MG
+- Endereço: R. Juscelino Kubitscheck, 126 — Mangueiras, Coronel Fabriciano - MG, 35171-291
+  (grafia igual à do Perfil da Empresa no Google — use exatamente esta em todo cadastro externo)
 - Horário: segunda a sábado, 7h às 17h · domingo fechado
 
 Se algum desses mudar, atualize também o JSON-LD no `<head>` das páginas.
