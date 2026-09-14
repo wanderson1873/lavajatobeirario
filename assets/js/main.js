@@ -171,7 +171,19 @@
 
     if (btnRecusar) btnRecusar.addEventListener('click', function () {
       guardar('recusado');
+      if (typeof window.gtag === 'function') {
+        window.gtag('consent', 'update', { analytics_storage: 'denied' });
+      }
       esconderAviso();
+    });
+
+    /* página de privacidade: o visitante pode rever a escolha a qualquer momento */
+    document.querySelectorAll('[data-cookies-reabrir]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        aviso.hidden = false;
+        document.body.classList.add('com-cookies');
+        if (btnAceitar) btnAceitar.focus();
+      });
     });
   }
 

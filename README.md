@@ -18,6 +18,7 @@ servicos.html       Serviços e preços (tabela completa)
 vonixx.html         Cera líquida Vonixx (serviço premium)
 fotos.html          Galeria
 contato.html        Contato, horários e mapa
+privacidade.html    Política de privacidade (noindex, fora do sitemap)
 robots.txt
 sitemap.xml
 assets/css/styles.css
@@ -179,8 +180,11 @@ escondido, para os dois não se sobreporem no celular.
 Para tirar o aviso, apague o bloco `<div class="cookies">` das 6 páginas — mas aí o certo
 é liberar o consentimento por padrão no `<head>`, ou você fica medindo nada.
 
-Falta uma **página de política de privacidade** para fechar o requisito da LGPD por
-completo. Se quiser, eu escrevo.
+A **política de privacidade** está em `/privacidade`, com link no aviso de cookies e no
+rodapé de todas as páginas. O botão "Mudar minha escolha de cookies" reabre o aviso, para o
+visitante revogar o consentimento. Ao adicionar qualquer ferramenta de medição nova
+(Clarity, por exemplo), atualize a página **antes** de publicar a ferramenta. O CNPJ entra
+na seção "Quem é o responsável" quando houver.
 
 ## Conferir se está tudo certo
 
