@@ -1,8 +1,14 @@
 # Site — Lava Jato Beira Rio
 
-Site estático (HTML + CSS + um arquivo JS). Sem build, sem dependências: dá para abrir
-`index.html` direto no navegador e publicar em qualquer hospedagem (GitHub Pages, Netlify,
-Vercel, Hostinger, cPanel).
+Site estático (HTML + CSS + um arquivo JS). Sem build, sem dependências. Os links internos
+são endereços sem extensão (`/servicos`), que o `nginx.conf` resolve — por isso, para
+conferir no computador, rode o mesmo Nginx da VPS em vez de abrir o arquivo direto:
+
+```bash
+docker build -t lavajato . && docker run --rm -p 8080:80 lavajato
+```
+
+e abra <http://localhost:8080>.
 
 ## Estrutura
 
@@ -35,6 +41,9 @@ em dois endereços diferentes o Google trata como duplicada e deixa uma delas fo
 - `/index.html` → 301 para `/`. Os links internos também apontam para `/`, não para
   `index.html` — era isso que fazia o Search Console listar a home como
   *"Página alternativa com tag canônica adequada"*.
+- `/servicos.html` → 301 para `/servicos` (vale para toda página). O arquivo continua se
+  chamando `servicos.html`; o Nginx é que serve `/servicos` a partir dele. Link novo,
+  canonical e sitemap usam sempre o endereço sem `.html`.
 
 O redirecionamento `http://` → `https://` é do proxy da VPS (Easypanel/Traefik) e é
 esperado: é ele que aparece no relatório como *"Página com redirecionamento"*.
