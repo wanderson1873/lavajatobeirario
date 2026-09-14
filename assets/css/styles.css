@@ -154,6 +154,7 @@ ul{ margin:0; padding:0; list-style:none; }
 .topo .container{ display:flex; align-items:center; justify-content:space-between; gap:24px; min-height:80px; }
 
 .marca{ display:flex; align-items:center; gap:12px; color:#fff; }
+.marca__logo{ display:block; width:52px; height:52px; flex:none; }
 .marca:hover{ color:#fff; }
 .marca__texto{ display:flex; flex-direction:column; gap:1px; }
 .marca__sobre{ font-size:11px; font-weight:600; color:var(--texto-tenue); letter-spacing:.18em; }

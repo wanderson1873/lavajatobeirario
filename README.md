@@ -69,7 +69,8 @@ conseguir redirecionar.
    | `vonixx-hidrorrepelencia.webp` | Vonixx — "Água que escorre" |
    | `og-lava-jato-beira-rio.jpg` | compartilhamento no WhatsApp/Facebook (1200×630) |
    | `og-vonixx.jpg` | compartilhamento da página Vonixx (1200×630) |
-   | `logo-lava-jato-beira-rio.png` | logo no JSON-LD (Google usa no painel da empresa) |
+   | `logo-icone-carro-frente.png` | logo no JSON-LD (Google usa no painel da empresa) — ver seção Marca |
+   | `logo-icones-referencia.png` | folha de referência com variações de ícone; não é usada em nenhuma página |
    | `apple-touch-icon.png` | ícone ao salvar o site na tela do iPhone |
 
    As fotos exibidas no site estão em **WebP**, 44% mais leves que JPG — isso conta como
@@ -189,17 +190,20 @@ completo. Se quiser, eu escrevo.
 
 ## Marca
 
-O símbolo no topo e o favicon são SVG desenhados direto no HTML — em `assets/img/favicon.svg`
-e no `<svg>` dentro do `<a class="marca">` de cada página. É um redesenho do logo original,
-mantendo o conceito: carro, onda e o brilho. Traço mais grosso e formas mais fechadas, para
-continuar legível a 16px na aba do navegador — tamanho em que o logo original vira borrão.
+O logo oficial é o **carro de frente saindo da água**: carro azul-marinho, duas gotas azuis,
+duas ondas verde-água e o brilho amarelo. Não redesenhe — use os arquivos abaixo, todos
+gerados a partir do mesmo desenho (fundo transparente de verdade, bordas limpas):
 
-O logo original está em `Downloads/lavajatobeirario/img/lava-jato-beira-rio-logo.png`
-(1774×887). Use ele em papel, adesivo e fachada; no site fica o SVG, que não pixeliza em
-tela nenhuma e pesa menos de 1 KB.
+| Arquivo | Uso |
+|---|---|
+| `logo-icone-carro-frente.png` | logo 512×512 transparente — JSON-LD e perfil do Google Empresas |
+| `logo-cabecalho.png` | logo no topo de cada página — sem fundo, carro em **branco** (112px, exibido a 52px) |
+| `favicon-48.png` | ícone da aba do navegador — sem fundo, carro branco com **contorno azul-marinho** |
+| `apple-touch-icon.png` | ícone ao salvar o site na tela do iPhone (180×180, fundo branco) |
 
-Se quiser o SVG novo como arquivo solto (para adesivo, camiseta ou o perfil do Google
-Empresas), é só pedir que eu exporto.
+No topo o carro é branco porque o cabeçalho é escuro e o azul-marinho some sobre ele. No
+favicon o contorno é o que garante leitura nos dois temas: na aba clara aparece o contorno,
+na aba escura aparece o branco — nenhuma cor sozinha passa bem nos dois.
 
 ## Dados do negócio usados no site
 
