@@ -21,6 +21,7 @@ contato.html        Contato, horários e mapa
 privacidade.html    Política de privacidade (noindex, fora do sitemap)
 ducha.html                      Ducha                              ┐
 lavagem-interna-e-externa.html  Meia Sola                          │ páginas de serviço:
+limpeza-interna.html            Limpeza interna                    │
 lavagem-geral.html              Lavagem geral                      │ uma busca por página
 lavagem-de-chassi.html          Lavagem de chassi                  │ ("<serviço> coronel fabriciano")
 lavagem-de-moto.html            Lavagem de moto                    │
@@ -74,7 +75,7 @@ conseguir redirecionar.
    | `lavagem-completa.webp` | home + galeria |
    | `rodas-e-pneus.webp` | home + galeria |
    | `acabamento-vonixx.webp` | home + galeria + Vonixx "Aplicação caprichada" |
-   | `higienizacao-interna.webp` | home + galeria |
+   | `higienizacao-interna.webp` | home + galeria + página Limpeza interna (o nome do arquivo ficou do nome antigo do serviço) |
    | `lavagem-externa.webp` | galeria |
    | `lavagem-de-motor.webp` | galeria |
    | `secagem-acabamento.webp` | galeria |
@@ -127,7 +128,7 @@ demais. Para substituir as ilustrativas, o que rende foto boa:
 ## SEO já configurado
 
 - `<title>` e `<meta name="description">` próprios em cada página, escritos com as buscas
-  reais ("lava jato Coronel Fabriciano", "higienização interna", "cera Vonixx").
+  reais ("lava jato Coronel Fabriciano", "limpeza interna", "cera Vonixx").
 - URL canônica, Open Graph e Twitter Card em todas as páginas.
 - Dados estruturados JSON-LD: `AutoWash` com endereço, telefone, coordenadas, horários,
   faixa de preço e catálogo de serviços na home; `Service` + `FAQPage` em serviços;
