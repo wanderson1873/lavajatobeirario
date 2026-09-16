@@ -458,6 +458,61 @@ ul{ margin:0; padding:0; list-style:none; }
 .aviso svg{ flex-shrink:0; color:var(--agua-fundo); }
 .aviso p{ font-size:15px; color:#4A575E; }
 
+/* ---------- páginas de serviço ---------- */
+
+.migalha{ font-size:14px; color:var(--texto-claro); }
+.migalha a{ color:var(--agua-clara); }
+.migalha a:hover{ color:#fff; }
+.hero-servico__acoes{ display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin-top:8px; }
+
+.faixa-imagem--servico{ background:var(--grafite); }
+.faixa-imagem--servico::after{ background:linear-gradient(180deg,rgba(16,22,26,.55) 0%,rgba(16,22,26,.05) 40%,rgba(16,22,26,.45) 100%); }
+
+.servico-sobre{ display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); gap:56px; align-items:start; }
+.servico-sobre h2{ font-size:clamp(26px,3.4vw,36px); font-weight:800; }
+.servico-sobre p{ color:var(--texto-suave); line-height:1.7; }
+.servico-sobre__nota{ font-size:15px; padding-top:6px; border-top:1px solid var(--linha-forte); }
+.servico-sobre__nota a{ text-decoration:underline; text-underline-offset:3px; }
+.lista-beneficios--agua .tick{ background:rgba(42,172,200,.14); color:var(--agua-fundo); }
+
+.card-resumo{
+  display:flex; flex-direction:column; gap:20px; padding:32px;
+  background:var(--branco); border:1px solid var(--linha); border-radius:var(--raio);
+  position:sticky; top:24px;
+}
+.card-resumo h2{ font-size:22px; font-weight:800; }
+.card-resumo__precos{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; }
+.card-resumo__preco{ display:flex; flex-direction:column; gap:4px; padding:16px; background:var(--papel); border-radius:var(--raio); }
+.card-resumo__preco span{ font-size:12px; font-weight:700; color:var(--texto-suave); letter-spacing:.12em; text-transform:uppercase; }
+.card-resumo__preco strong{ font-family:'Archivo',sans-serif; font-size:28px; font-weight:800; line-height:1.1; color:var(--texto); }
+.card-resumo__preco small{ font-size:14px; line-height:1.45; color:var(--texto-suave); }
+.card-resumo__dados{ display:flex; flex-direction:column; margin:0; }
+.card-resumo__dados div{ display:flex; justify-content:space-between; gap:16px; padding:10px 0; border-top:1px solid var(--linha); }
+.card-resumo__dados dt{ font-size:15px; font-weight:700; }
+.card-resumo__dados dd{ margin:0; font-size:15px; color:var(--texto-suave); text-align:right; }
+
+.faq{ max-width:800px; margin:0 auto; display:flex; flex-direction:column; gap:10px; }
+.faq__item{ background:var(--papel); border:1px solid var(--linha); border-radius:var(--raio); }
+.faq__item summary{
+  display:flex; justify-content:space-between; align-items:center; gap:16px;
+  padding:18px 22px; font-size:17px; font-weight:700; cursor:pointer; list-style:none;
+}
+.faq__item summary::-webkit-details-marker{ display:none; }
+.faq__item summary::after{ content:"+"; font-size:24px; font-weight:400; line-height:1; color:var(--agua-fundo); flex-shrink:0; }
+.faq__item[open] summary::after{ content:"−"; }
+.faq__item p{ padding:0 22px 20px; color:var(--texto-suave); line-height:1.65; }
+.faq__item a{ text-decoration:underline; text-underline-offset:3px; }
+
+.card--link{ color:var(--texto); transition:border-color .2s ease, transform .2s ease; }
+.card--link:hover{ color:var(--texto); border-color:var(--agua); transform:translateY(-2px); }
+.card__mais{ display:inline-flex; align-items:center; gap:8px; margin-top:auto; font-size:15px; font-weight:700; color:var(--agua-fundo); }
+
+@media (max-width:860px){
+  .servico-sobre{ grid-template-columns:1fr; gap:36px; }
+  .card-resumo{ position:static; padding:24px; }
+  .hero-servico__acoes{ flex-direction:column; align-items:stretch; width:100%; }
+}
+
 /* ---------- quem somos (home) ---------- */
 
 .quem-somos{ display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:56px; align-items:center; }

@@ -19,6 +19,13 @@ vonixx.html         Cera líquida Vonixx (serviço premium)
 fotos.html          Galeria
 contato.html        Contato, horários e mapa
 privacidade.html    Política de privacidade (noindex, fora do sitemap)
+ducha.html                      Ducha                              ┐
+lavagem-interna-e-externa.html  Meia Sola                          │ páginas de serviço:
+lavagem-geral.html              Lavagem geral                      │ uma busca por página
+lavagem-de-chassi.html          Lavagem de chassi                  │ ("<serviço> coronel fabriciano")
+lavagem-de-moto.html            Lavagem de moto                    │
+lavagem-de-motor.html           Lavagem de motor                   ┘
+marketing/          Material de apoio (questionário dos donos etc.) — fora da imagem Docker
 robots.txt
 sitemap.xml
 assets/css/styles.css
@@ -191,6 +198,16 @@ na seção "Quem é o responsável" quando houver.
 
 - Dados estruturados: <https://search.google.com/test/rich-results>
 - Velocidade e boas práticas: <https://pagespeed.web.dev/>
+
+## Páginas de serviço
+
+Cada serviço tem página própria, com a mesma estrutura: topo com WhatsApp, "o que inclui",
+cartão de preço e prazo, perguntas frequentes (visíveis e em `FAQPage` no JSON-LD), outros
+serviços e chamada final. O texto saiu das respostas dos donos em
+`marketing/questionario-donos.md` — **nada de tempo ou preço inventado**.
+
+Ao mudar um preço, atualize em três lugares: a página do serviço (cartão + JSON-LD
+`Service`), a tabela em `servicos.html` e o `hasOfferCatalog` da home.
 
 ## O que é dinâmico no site
 
