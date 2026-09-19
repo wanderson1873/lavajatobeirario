@@ -123,9 +123,12 @@
   });
 
   /* ---------- consentimento de cookies (LGPD) ----------
-     O Google Analytics entra com analytics_storage: 'denied' no <head>.
-     Só depois do "Aceitar" a permissão é liberada. A escolha fica no
-     navegador do visitante, em localStorage, e não é enviada a lugar nenhum. */
+     O <head> entra com analytics_storage: 'denied' (Consent Mode v2) antes de
+     o Tag Manager carregar. Só depois do "Aceitar" a permissão é liberada e o
+     Microsoft Clarity é carregado. A escolha fica no navegador do visitante,
+     em localStorage, e não é enviada a lugar nenhum. */
+
+  var CLARITY_ID = 'ykiggfw89n';
 
   var CHAVE = 'ljbr-cookies';
   var aviso = document.querySelector('[data-cookies]');
@@ -142,6 +145,22 @@
     if (typeof window.gtag === 'function') {
       window.gtag('consent', 'update', { analytics_storage: 'granted' });
     }
+    if (window.dataLayer) window.dataLayer.push({ event: 'consentimento_aceito' });
+    carregarClarity();
+  }
+
+  /* Microsoft Clarity (mapa de calor e gravação da navegação).
+     Só entra depois do "Aceitar" — por isso não está no <head>. */
+  function carregarClarity() {
+    if (window.clarity || document.getElementById('clarity-ljbr')) return;
+    window.clarity = window.clarity || function () {
+      (window.clarity.q = window.clarity.q || []).push(arguments);
+    };
+    var tag = document.createElement('script');
+    tag.id = 'clarity-ljbr';
+    tag.async = true;
+    tag.src = 'https://www.clarity.ms/tag/' + CLARITY_ID;
+    document.head.appendChild(tag);
   }
 
   function esconderAviso() {
@@ -174,6 +193,7 @@
       if (typeof window.gtag === 'function') {
         window.gtag('consent', 'update', { analytics_storage: 'denied' });
       }
+      if (window.dataLayer) window.dataLayer.push({ event: 'consentimento_recusado' });
       esconderAviso();
     });
 
@@ -189,7 +209,8 @@
 
   /* ---------- medição de contato ----------
      Visita não é o número que importa aqui: o que vale é quanta gente
-     clicou para falar com o lava jato. Cada clique vira um evento no GA4. */
+     clicou para falar com o lava jato. Cada clique é empurrado para o
+     dataLayer; quem transforma isso em evento do GA4 é o Tag Manager. */
 
   function ondeEsta(el) {
     if (el.closest('.wa-flutuante')) return 'botao-flutuante';
@@ -205,8 +226,12 @@
   }
 
   function medir(evento, parametros) {
-    if (typeof window.gtag !== 'function') return;
-    window.gtag('event', evento, parametros);
+    if (!window.dataLayer) return;
+    var dados = { event: evento };
+    for (var chave in parametros) {
+      if (Object.prototype.hasOwnProperty.call(parametros, chave)) dados[chave] = parametros[chave];
+    }
+    window.dataLayer.push(dados);
   }
 
   document.addEventListener('click', function (evento) {

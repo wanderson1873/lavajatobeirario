@@ -26,7 +26,8 @@ lavagem-geral.html              Lavagem geral                      │ uma busca
 lavagem-de-chassi.html          Lavagem de chassi                  │ ("<serviço> coronel fabriciano")
 lavagem-de-moto.html            Lavagem de moto                    │
 lavagem-de-motor.html           Lavagem de motor                   ┘
-marketing/          Material de apoio (questionário dos donos etc.) — fora da imagem Docker
+marketing/          Material de apoio (questionário dos donos, planilha de cadastros,
+                    passo a passo do Tag Manager) — fora da imagem Docker
 robots.txt
 sitemap.xml
 assets/css/styles.css
@@ -141,10 +142,22 @@ demais. Para substituir as ilustrativas, o que rende foto boa:
 envie o `sitemap.xml` e coloque o endereço do site no seu **perfil do Google Empresas** —
 para lava jato, o perfil do Google é o que mais traz cliente, e o site reforça o ranqueamento local.
 
-## Google Analytics
+## Medição: Tag Manager, GA4 e Clarity
 
-A tag do GA4 (`G-ZM7JJXZCMG`) está no `<head>` das 6 páginas, incluindo a 404. Se um dia
-trocar de propriedade, é localizar e substituir esse ID.
+Todas as páginas (inclusive a 404) carregam, nesta ordem, dentro do `<head>`:
+
+1. o **consentimento padrão negado** (Consent Mode v2) — precisa vir antes de tudo;
+2. o **Google Tag Manager `GTM-PXQNS4SG`**, que é quem carrega o GA4 (`G-ZM7JJXZCMG`).
+
+Não existe mais `gtag.js` fixo no HTML: **quem cria a tag do Analytics é o Tag Manager**.
+Nunca cole um código de GA4 direto numa página, ou cada visita é contada duas vezes.
+O que ainda falta configurar dentro do painel do Tag Manager está em
+`marketing/gtm-clarity-passo-a-passo.md`.
+
+O **Microsoft Clarity (`ykiggfw89n`)**, que grava a navegação e monta mapa de calor, não
+fica no `<head>`: o `main.js` só injeta o script depois do clique em "Aceitar". Quem recusa
+não baixa nem o arquivo. Por isso ele também **não** deve ser adicionado como tag no Tag
+Manager.
 
 Três coisas para acertar no painel do Analytics depois de publicar:
 
@@ -159,9 +172,11 @@ Três coisas para acertar no painel do Analytics depois de publicar:
 ### Eventos que o site já envia
 
 Visita não é o número que importa aqui — o que vale é quanta gente clicou para falar com
-o lava jato. O `main.js` envia quatro eventos, todos com o parâmetro `local`, que diz de
-qual botão da página veio o clique (`menu-topo`, `topo-da-pagina`, `botao-flutuante`,
-`chamada-final`, `faixa-vonixx`, `cartao-contato`, `rodape`):
+o lava jato. O `main.js` empurra quatro eventos para o `dataLayer`; quem transforma isso em
+evento do GA4 são as tags do Tag Manager. Todos levam o parâmetro `local`, que diz de qual
+botão da página veio o clique (`menu-topo`, `topo-da-pagina`, `botao-flutuante`,
+`chamada-final`, `faixa-vonixx`, `cartao-contato`, `cartao-servico`, `quem-somos`,
+`rodape`):
 
 | Evento | Quando dispara |
 | --- | --- |
@@ -177,7 +192,7 @@ qual botão da página veio o clique (`menu-topo`, `topo-da-pagina`, `botao-flut
 
 ### Aviso de cookies (LGPD)
 
-O site entra com o Analytics **bloqueado** (Consent Mode v2, `analytics_storage: denied`).
+O site entra com o Analytics e o Clarity **bloqueados** (Consent Mode v2, `analytics_storage: denied`).
 Nenhum cookie é gravado antes do visitante clicar em "Aceitar" no aviso que aparece no
 rodapé. Se ele recusar, o site funciona igual e o Analytics continua sem gravar nada —
 só os eventos acima seguem sendo contados de forma anônima, sem identificar quem é.

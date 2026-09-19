@@ -4,12 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZM7JJXZCMG"></script>
 <script>
+  // LGPD: nada é medido antes do visitante aceitar (Consent Mode v2).
+  // Precisa vir ANTES do Tag Manager para valer já no primeiro carregamento.
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  // LGPD: nada é gravado antes do visitante aceitar (Consent Mode v2)
   gtag('consent', 'default', {
     ad_storage: 'denied',
     ad_user_data: 'denied',
@@ -17,11 +16,15 @@
     analytics_storage: 'denied',
     wait_for_update: 500
   });
-
-  gtag('js', new Date());
-
-  gtag('config', 'G-ZM7JJXZCMG');
 </script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PXQNS4SG');</script>
+<!-- Fim do Google Tag Manager -->
 
 
 <title>Página não encontrada — Lava Jato Beira Rio</title>
@@ -37,6 +40,10 @@
 <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 <body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXQNS4SG"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <header class="topo">
   <div class="container">
@@ -157,7 +164,7 @@
 <div class="cookies" data-cookies role="dialog" aria-live="polite" aria-label="Aviso de cookies" hidden>
   <div class="cookies__texto">
     <strong>A gente mede o acesso ao site</strong>
-    <p>Usamos o Google Analytics só para saber quantas pessoas visitam o site e por onde chegam. Nada de dado pessoal, e você pode recusar sem perder nenhuma função da página. <a href="/privacidade">Saiba mais</a>.</p>
+    <p>Usamos o Google Analytics e o Microsoft Clarity para entender como o site é usado: por onde as pessoas chegam, em que botões clicam e até onde rolam a página. Nada de dado pessoal, e você pode recusar sem perder nenhuma função. <a href="/privacidade">Saiba mais</a>.</p>
   </div>
   <div class="cookies__acoes">
     <button type="button" class="btn btn--linha-clara" data-cookies-recusar>Recusar</button>

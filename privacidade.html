@@ -4,12 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZM7JJXZCMG"></script>
 <script>
+  // LGPD: nada é medido antes do visitante aceitar (Consent Mode v2).
+  // Precisa vir ANTES do Tag Manager para valer já no primeiro carregamento.
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  // LGPD: nada é gravado antes do visitante aceitar (Consent Mode v2)
   gtag('consent', 'default', {
     ad_storage: 'denied',
     ad_user_data: 'denied',
@@ -17,11 +16,15 @@
     analytics_storage: 'denied',
     wait_for_update: 500
   });
-
-  gtag('js', new Date());
-
-  gtag('config', 'G-ZM7JJXZCMG');
 </script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PXQNS4SG');</script>
+<!-- Fim do Google Tag Manager -->
 
 
 <title>Política de privacidade — Lava Jato Beira Rio</title>
@@ -38,6 +41,10 @@
 <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXQNS4SG"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <header class="topo">
   <div class="container">
@@ -83,7 +90,7 @@
   <section class="secao">
     <div class="container">
       <article class="texto-legal">
-        <p class="texto-legal__data">Atualizada em 13 de setembro de 2026.</p>
+        <p class="texto-legal__data">Atualizada em 18 de setembro de 2026.</p>
 
         <h2>Quem é o responsável</h2>
         <p>Este site é do <strong>Lava Jato Beira Rio</strong>, R. Juscelino Kubitscheck, 126 — Mangueiras, Coronel Fabriciano - MG, 35171-291. Para qualquer assunto sobre os seus dados, fale com a gente pelo WhatsApp ou telefone <a href="tel:+5531987188203">(31) 98718-8203</a>.</p>
@@ -99,6 +106,18 @@
           <li>Se tocar em <strong>Recusar</strong>, o site funciona igual. O Google ainda pode receber um sinal anônimo de que houve uma visita ou um clique, sem cookie e sem identificar o aparelho.</li>
           <li>Os dados ficam com o Google, que os trata conforme a <a href="https://policies.google.com/privacy?hl=pt-BR" target="_blank" rel="noopener">política de privacidade do Google</a>.</li>
         </ul>
+
+        <h2>Microsoft Clarity (só se você aceitar)</h2>
+        <p>Depois do "Aceitar", o site também carrega o Microsoft Clarity, que mostra para a gente como as páginas são usadas: até onde as pessoas rolam, onde clicam e em que ponto desistem. Serve para arrumar o que está atrapalhando — um botão escondido, um preço difícil de achar.</p>
+        <ul>
+          <li>O Clarity grava a navegação na página (movimento, cliques e rolagem), <strong>não</strong> a câmera, o microfone nem a tela do seu aparelho.</li>
+          <li>O que você digita em campos de texto é ocultado automaticamente pela ferramenta. De todo modo, este site não tem formulário nem campo para preencher.</li>
+          <li>Se você recusar, o Clarity não é carregado: o arquivo dele nem chega a ser baixado.</li>
+          <li>Os dados ficam com a Microsoft, sob a <a href="https://privacy.microsoft.com/pt-br/privacystatement" target="_blank" rel="noopener">política de privacidade da Microsoft</a>.</li>
+        </ul>
+
+        <h2>Google Tag Manager</h2>
+        <p>As ferramentas de medição acima são carregadas pelo Google Tag Manager, que por si só não grava cookie nem identifica ninguém: ele apenas organiza, num lugar só, o que é carregado e quando — sempre respeitando a sua escolha no aviso de cookies.</p>
 
         <h2>Sua escolha fica só no seu navegador</h2>
         <p>Guardamos se você aceitou ou recusou no armazenamento local do próprio navegador (chave <code>ljbr-cookies</code>), para o aviso não aparecer toda hora. Essa informação não é enviada a lugar nenhum.</p>
@@ -173,7 +192,7 @@
 <div class="cookies" data-cookies role="dialog" aria-live="polite" aria-label="Aviso de cookies" hidden>
   <div class="cookies__texto">
     <strong>A gente mede o acesso ao site</strong>
-    <p>Usamos o Google Analytics só para saber quantas pessoas visitam o site e por onde chegam. Nada de dado pessoal, e você pode recusar sem perder nenhuma função da página. <a href="/privacidade">Saiba mais</a>.</p>
+    <p>Usamos o Google Analytics e o Microsoft Clarity para entender como o site é usado: por onde as pessoas chegam, em que botões clicam e até onde rolam a página. Nada de dado pessoal, e você pode recusar sem perder nenhuma função. <a href="/privacidade">Saiba mais</a>.</p>
   </div>
   <div class="cookies__acoes">
     <button type="button" class="btn btn--linha-clara" data-cookies-recusar>Recusar</button>
