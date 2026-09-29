@@ -87,7 +87,7 @@ conseguir redirecionar.
    | `vonixx-carro-brilhando.webp` | banner da página Vonixx (1600×900) |
    | `vonixx-brilho.webp` | Vonixx — "Brilho profundo" |
    | `vonixx-hidrorrepelencia.webp` | Vonixx — "Água que escorre" |
-   | `og-lava-jato-beira-rio.jpg` | compartilhamento no WhatsApp/Facebook (1200×630) |
+   | `og-fachada-lava-jato-beira-rio.jpg` | compartilhamento no WhatsApp/Facebook (1200×630) |
    | `og-vonixx.jpg` | compartilhamento da página Vonixx (1200×630) |
    | `logo-icone-carro-frente.png` | logo no JSON-LD (Google usa no painel da empresa) — ver seção Marca |
    | `logo-icones-referencia.png` | folha de referência com variações de ícone; não é usada em nenhuma página |
@@ -108,9 +108,9 @@ conseguir redirecionar.
    Foto de celular bem tirada (carro seco, luz do dia, mesmo ângulo no antes e depois)
    rende mais que imagem de banco.
 
-3. **Imagem de compartilhamento.** `assets/img/og-lava-jato-beira-rio.jpg` (1200×630px) é
-   o que aparece quando alguém manda o link no WhatsApp, Instagram ou Facebook. Vale muito
-   trocar por uma foto real do seu lava jato.
+3. **Imagem de compartilhamento.** `assets/img/og-fachada-lava-jato-beira-rio.jpg` (1200×630px) é
+   o que aparece quando alguém manda o link no WhatsApp, Instagram ou Facebook, e a miniatura
+   do Google. É a fachada real (placas borradas), recortada de `fachada-lava-jato-beira-rio.webp`.
 
 ## Fotos que valem a pena tirar
 
