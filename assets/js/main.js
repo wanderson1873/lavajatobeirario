@@ -225,6 +225,21 @@
     return 'outro';
   }
 
+  // o contador próprio (s.derson.cloud/s.js) usa os mesmos nomes de botão
+  window.ptgOndeEsta = ondeEsta;
+
+  /* ---------- "Não contar minhas visitas" (página de privacidade) ---------- */
+  document.querySelectorAll('[data-contador-sair]').forEach(function (btn) {
+    var parado = false;
+    try { parado = localStorage.getItem('ptg_ignorar') === '1'; } catch (e) { /* modo anônimo */ }
+    if (parado) { btn.textContent = 'Suas visitas já não são contadas'; btn.disabled = true; }
+    btn.addEventListener('click', function () {
+      try { localStorage.setItem('ptg_ignorar', '1'); } catch (e) { /* modo anônimo */ }
+      btn.textContent = 'Pronto: suas visitas não são mais contadas';
+      btn.disabled = true;
+    });
+  });
+
   function medir(evento, parametros) {
     if (!window.dataLayer) return;
     var dados = { event: evento };
