@@ -122,35 +122,21 @@
     el.textContent = String(new Date().getFullYear());
   });
 
-  /* ---------- consentimento de cookies (LGPD) ----------
-     O <head> entra com analytics_storage: 'denied' (Consent Mode v2) antes de
-     o Tag Manager carregar. Só depois do "Aceitar" a permissão é liberada e o
-     Microsoft Clarity é carregado. A escolha fica no navegador do visitante,
-     em localStorage, e não é enviada a lugar nenhum. */
+  /* ---------- medição: Google Analytics e Microsoft Clarity (LGPD) ----------
+     Não há aviso de cookies: a base é o legítimo interesse, explicado em
+     /privacidade. O <head> já entra com analytics_storage: 'granted' (Consent
+     Mode v2) e o Clarity é carregado aqui, para todo visitante.
+     Quem toca em "Parar de medir este aparelho" fica com ljbr-medicao = 'parado'
+     no localStorage: o <head> deixa de carregar o Tag Manager e o Clarity não é
+     baixado. O contador próprio tem a saída dele, logo abaixo. */
 
   var CLARITY_ID = 'ykiggfw89n';
+  var medicaoParada = window.ljbrMedicaoParada === true;
 
-  var CHAVE = 'ljbr-cookies';
-  var aviso = document.querySelector('[data-cookies]');
+  // escolha do aviso antigo (Aceitar/Recusar): não vale mais
+  try { localStorage.removeItem('ljbr-cookies'); } catch (e) { /* modo anônimo */ }
 
-  function guardar(valor) {
-    try { localStorage.setItem(CHAVE, valor); } catch (e) { /* modo anônimo: só não lembra */ }
-  }
-
-  function lerEscolha() {
-    try { return localStorage.getItem(CHAVE); } catch (e) { return null; }
-  }
-
-  function liberarAnalytics() {
-    if (typeof window.gtag === 'function') {
-      window.gtag('consent', 'update', { analytics_storage: 'granted' });
-    }
-    if (window.dataLayer) window.dataLayer.push({ event: 'consentimento_aceito' });
-    carregarClarity();
-  }
-
-  /* Microsoft Clarity (mapa de calor e gravação da navegação).
-     Só entra depois do "Aceitar" — por isso não está no <head>. */
+  /* Microsoft Clarity (mapa de calor e gravação da navegação). */
   function carregarClarity() {
     if (window.clarity || document.getElementById('clarity-ljbr')) return;
     window.clarity = window.clarity || function () {
@@ -163,49 +149,34 @@
     document.head.appendChild(tag);
   }
 
-  function esconderAviso() {
-    if (!aviso) return;
-    aviso.hidden = true;
-    document.body.classList.remove('com-cookies');
-  }
+  if (!medicaoParada) carregarClarity();
 
-  if (aviso) {
-    var escolha = lerEscolha();
-
-    if (escolha === 'aceito') {
-      liberarAnalytics();
-    } else if (escolha !== 'recusado') {
-      aviso.hidden = false;
-      document.body.classList.add('com-cookies');
-    }
-
-    var btnAceitar = aviso.querySelector('[data-cookies-aceitar]');
-    var btnRecusar = aviso.querySelector('[data-cookies-recusar]');
-
-    if (btnAceitar) btnAceitar.addEventListener('click', function () {
-      guardar('aceito');
-      liberarAnalytics();
-      esconderAviso();
-    });
-
-    if (btnRecusar) btnRecusar.addEventListener('click', function () {
-      guardar('recusado');
+  /* ---------- "Parar de medir este aparelho" (página de privacidade) ---------- */
+  document.querySelectorAll('[data-medicao-parar]').forEach(function (btn) {
+    if (medicaoParada) { btn.textContent = 'Este aparelho já não é medido'; btn.disabled = true; }
+    btn.addEventListener('click', function () {
+      try { localStorage.setItem('ljbr-medicao', 'parado'); } catch (e) { /* modo anônimo: só não lembra */ }
+      window.ljbrMedicaoParada = true;
       if (typeof window.gtag === 'function') {
         window.gtag('consent', 'update', { analytics_storage: 'denied' });
       }
-      if (window.dataLayer) window.dataLayer.push({ event: 'consentimento_recusado' });
-      esconderAviso();
-    });
-
-    /* página de privacidade: o visitante pode rever a escolha a qualquer momento */
-    document.querySelectorAll('[data-cookies-reabrir]').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        aviso.hidden = false;
-        document.body.classList.add('com-cookies');
-        if (btnAceitar) btnAceitar.focus();
+      // apaga os cookies do Analytics (_ga, _ga_XXXX), gravados no domínio principal
+      var dominio = location.hostname.replace(/^www\./, '');
+      document.cookie.split(';').forEach(function (par) {
+        var nome = par.split('=')[0].trim();
+        if (nome.indexOf('_ga') !== 0) return;
+        ['', '; domain=' + dominio, '; domain=.' + dominio].forEach(function (d) {
+          document.cookie = nome + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/' + d;
+        });
       });
+      if (typeof window.clarity === 'function') {
+        window.clarity('consent', false); // apaga os cookies do Clarity
+        window.clarity('stop');
+      }
+      btn.textContent = 'Pronto: este aparelho não é mais medido';
+      btn.disabled = true;
     });
-  }
+  });
 
   /* ---------- medição de contato ----------
      Visita não é o número que importa aqui: o que vale é quanta gente

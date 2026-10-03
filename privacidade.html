@@ -5,21 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script>
-  // LGPD: nada é medido antes do visitante aceitar (Consent Mode v2).
+  // Medição liberada desde o primeiro carregamento, sem aviso de cookies (LGPD: legítimo
+  // interesse, explicado em /privacidade). Só fica desligada se o visitante tocou em
+  // "Parar de medir este aparelho" — aí o Tag Manager nem é carregado.
   // Precisa vir ANTES do Tag Manager para valer já no primeiro carregamento.
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  try { window.ljbrMedicaoParada = localStorage.getItem('ljbr-medicao') === 'parado'; } catch (e) {}
   gtag('consent', 'default', {
     ad_storage: 'denied',
     ad_user_data: 'denied',
     ad_personalization: 'denied',
-    analytics_storage: 'denied',
-    wait_for_update: 500
+    analytics_storage: window.ljbrMedicaoParada ? 'denied' : 'granted'
   });
 </script>
 
 <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+<script>if(!window.ljbrMedicaoParada)(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
@@ -28,7 +30,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
 <title>Política de privacidade — Lava Jato Beira Rio</title>
-<meta name="description" content="Como o site do Lava Jato Beira Rio usa cookies e o Google Analytics, quais dados são coletados e como você pode recusar ou mudar sua escolha.">
+<meta name="description" content="Como o site do Lava Jato Beira Rio usa cookies, o Google Analytics e o Microsoft Clarity, quais dados são coletados e como parar de ser medido.">
 <link rel="canonical" href="https://lavajatobeirario.com.br/privacidade">
 <meta name="robots" content="noindex, follow">
 <meta name="theme-color" content="#10161A">
@@ -90,7 +92,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="secao">
     <div class="container">
       <article class="texto-legal">
-        <p class="texto-legal__data">Atualizada em 1º de outubro de 2026.</p>
+        <p class="texto-legal__data">Atualizada em 2 de outubro de 2026.</p>
 
         <h2>Quem é o responsável</h2>
         <p>Este site é do <strong>Lava Jato Beira Rio</strong>, R. Juscelino Kubitscheck, 126 — Mangueiras, Coronel Fabriciano - MG, 35171-291. Para qualquer assunto sobre os seus dados, fale com a gente pelo WhatsApp ou telefone <a href="tel:+5531987188203">(31) 98718-8203</a>.</p>
@@ -98,29 +100,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h2>O que o site não coleta</h2>
         <p>O site não tem cadastro, login, formulário nem área de cliente. Não pedimos nome, CPF, e-mail ou placa do carro por aqui, e não vendemos nem repassamos dados a ninguém.</p>
 
-        <h2>Google Analytics (só se você aceitar)</h2>
+        <h2>Google Analytics</h2>
         <p>Usamos o Google Analytics para saber quantas pessoas visitam o site, de onde chegam (busca do Google, link no WhatsApp etc.), quais páginas veem e em quais botões clicam — por exemplo, quantas vezes alguém tocou em "Chamar no WhatsApp". Isso serve para melhorar o site, não para identificar você.</p>
         <ul>
-          <li>Ao abrir o site, o Analytics começa <strong>bloqueado</strong>: nenhum cookie de medição é gravado.</li>
-          <li>Os cookies só são gravados depois que você toca em <strong>Aceitar</strong> no aviso do rodapé.</li>
-          <li>Se tocar em <strong>Recusar</strong>, o site funciona igual. O Google ainda pode receber um sinal anônimo de que houve uma visita ou um clique, sem cookie e sem identificar o aparelho.</li>
+          <li>Ele grava cookies no seu navegador com um código aleatório, para reconhecer o mesmo aparelho de uma visita para outra. Esse código não tem seu nome, telefone nem nada que diga quem você é.</li>
+          <li>Não usamos esses dados para anúncios: os recursos de publicidade e remarketing do Google ficam desligados.</li>
           <li>Os dados ficam com o Google, que os trata conforme a <a href="https://policies.google.com/privacy?hl=pt-BR" target="_blank" rel="noopener">política de privacidade do Google</a>.</li>
         </ul>
 
-        <h2>Microsoft Clarity (só se você aceitar)</h2>
-        <p>Depois do "Aceitar", o site também carrega o Microsoft Clarity, que mostra para a gente como as páginas são usadas: até onde as pessoas rolam, onde clicam e em que ponto desistem. Serve para arrumar o que está atrapalhando — um botão escondido, um preço difícil de achar.</p>
+        <h2>Microsoft Clarity</h2>
+        <p>O site também carrega o Microsoft Clarity, que mostra para a gente como as páginas são usadas: até onde as pessoas rolam, onde clicam e em que ponto desistem. Serve para arrumar o que está atrapalhando — um botão escondido, um preço difícil de achar.</p>
         <ul>
           <li>O Clarity grava a navegação na página (movimento, cliques e rolagem), <strong>não</strong> a câmera, o microfone nem a tela do seu aparelho.</li>
-          <li>O que você digita em campos de texto é ocultado automaticamente pela ferramenta. De todo modo, este site não tem formulário nem campo para preencher.</li>
-          <li>Se você recusar, o Clarity não é carregado: o arquivo dele nem chega a ser baixado.</li>
+          <li>Nas gravações, todo o texto das páginas aparece mascarado. E este site não tem formulário nem campo para preencher.</li>
           <li>Os dados ficam com a Microsoft, sob a <a href="https://privacy.microsoft.com/pt-br/privacystatement" target="_blank" rel="noopener">política de privacidade da Microsoft</a>.</li>
         </ul>
 
+        <h2>Por que medimos sem pedir antes</h2>
+        <p>O Google Analytics e o Clarity começam a funcionar assim que a página abre, sem aviso de cookies. A base legal é o legítimo interesse do lava jato em entender como o site é usado e melhorá-lo (art. 7º, IX, da LGPD): são só dados de navegação, que não identificam você e não são usados para anúncios. Se preferir não ser medido, toque no botão abaixo.</p>
+        <p><button type="button" class="btn btn--linha" data-medicao-parar>Parar de medir este aparelho</button></p>
+        <p>Isso desliga o Google Analytics e o Microsoft Clarity neste navegador, na hora e nas próximas visitas. A escolha fica guardada no armazenamento local do próprio navegador (chave <code>ljbr-medicao</code>) e não é enviada a lugar nenhum — se você limpar os dados do navegador ou usar outro aparelho, é só tocar de novo. O contador de visitas próprio, explicado abaixo, não é desligado por este botão: ele tem um botão só dele.</p>
+
         <h2>Google Tag Manager</h2>
-        <p>As ferramentas de medição acima são carregadas pelo Google Tag Manager, que por si só não grava cookie nem identifica ninguém: ele apenas organiza, num lugar só, o que é carregado e quando — sempre respeitando a sua escolha no aviso de cookies.</p>
+        <p>As ferramentas de medição acima são carregadas pelo Google Tag Manager, que por si só não grava cookie nem identifica ninguém: ele apenas organiza, num lugar só, o que é carregado e quando — e deixa de ser carregado se você pedir para parar de medir.</p>
 
         <h2>Contador de visitas próprio (sem cookie)</h2>
-        <p>Além das ferramentas acima, o site tem um contador de visitas próprio, mais simples, que serve para o dono do lava jato saber quantas pessoas viram o site, de onde chegaram e quantas tocaram em WhatsApp, telefone ou "Como chegar". Ele funciona mesmo sem o "Aceitar", porque foi feito para não identificar ninguém:</p>
+        <p>Além das ferramentas acima, o site tem um contador de visitas próprio, mais simples, que serve para o dono do lava jato saber quantas pessoas viram o site, de onde chegaram e quantas tocaram em WhatsApp, telefone ou "Como chegar". Ele é separado das ferramentas acima e foi feito para não identificar ninguém:</p>
         <ul>
           <li><strong>Não usa cookie.</strong> Guarda no armazenamento local do seu navegador apenas um código aleatório (chaves <code>ptg_v</code> e <code>ptg_s</code>), que serve só para a mesma visita não ser contada duas vezes. Esse código não tem seu nome, telefone nem nada que diga quem você é.</li>
           <li>Registra a página vista, o site ou link de onde você veio, os botões e links tocados, o tipo de aparelho e navegador, o tamanho da tela, o idioma, até onde a página foi rolada, quanto tempo ficou nela e a cidade aproximada.</li>
@@ -131,10 +136,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>Se não quiser ser contado, toque no botão abaixo: o contador para de funcionar neste navegador.</p>
         <p><button type="button" class="btn btn--linha" data-contador-sair>Não contar minhas visitas</button></p>
 
-        <h2>Sua escolha fica só no seu navegador</h2>
-        <p>Guardamos se você aceitou ou recusou no armazenamento local do próprio navegador (chave <code>ljbr-cookies</code>), para o aviso não aparecer toda hora. Essa informação não é enviada a lugar nenhum.</p>
-        <p><button type="button" class="btn btn--linha" data-cookies-reabrir>Mudar minha escolha de cookies</button></p>
-
         <h2>Serviços de terceiros usados nas páginas</h2>
         <ul>
           <li><strong>Google Maps</strong> — o mapa da página de contato é carregado do Google, que pode gravar cookies próprios.</li>
@@ -143,7 +144,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </ul>
 
         <h2>Seus direitos</h2>
-        <p>Pela Lei Geral de Proteção de Dados (Lei nº 13.709/2018), você pode pedir confirmação de que tratamos dados seus, acesso, correção ou exclusão, e revogar o consentimento a qualquer momento — o botão acima já faz isso para os cookies. Para os demais pedidos, chame no <a href="https://wa.me/5531987188203" target="_blank" rel="noopener">WhatsApp</a>.</p>
+        <p>Pela Lei Geral de Proteção de Dados (Lei nº 13.709/2018), você pode pedir confirmação de que tratamos dados seus, acesso, correção ou exclusão, e se opor à medição a qualquer momento — os botões acima já fazem isso. Para os demais pedidos, chame no <a href="https://wa.me/5531987188203" target="_blank" rel="noopener">WhatsApp</a>.</p>
 
         <h2>Mudanças nesta política</h2>
         <p>Se o site passar a usar outra ferramenta de medição, esta página é atualizada antes, com a nova data no topo.</p>
@@ -200,17 +201,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <a class="wa-flutuante" href="https://wa.me/5531987188203?text=Ol%C3%A1!%20Quero%20agendar%20uma%20lavagem." target="_blank" rel="noopener" aria-label="Chamar no WhatsApp">
   <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4a8 8 0 0 0-6.9 12l-1 4 4.1-1A8 8 0 1 0 12 4z"></path><path d="M9 9.4c0-.3.2-.6.5-.7l1-.3c.3 0 .6.1.7.4l.5 1.1c.1.3 0 .6-.2.8l-.5.4c.4.9 1.1 1.6 2 2l.4-.5c.2-.2.5-.3.8-.2l1.1.5c.3.1.4.4.4.7v1c0 .4-.3.7-.7.7-3-.1-5.5-2.5-6-5.4z"></path></svg>
 </a>
-
-<div class="cookies" data-cookies role="dialog" aria-live="polite" aria-label="Aviso de cookies" hidden>
-  <div class="cookies__texto">
-    <strong>A gente mede o acesso ao site</strong>
-    <p>Usamos o Google Analytics e o Microsoft Clarity para entender como o site é usado: por onde as pessoas chegam, em que botões clicam e até onde rolam a página. Nada de dado pessoal, e você pode recusar sem perder nenhuma função. <a href="/privacidade">Saiba mais</a>.</p>
-  </div>
-  <div class="cookies__acoes">
-    <button type="button" class="btn btn--linha-clara" data-cookies-recusar>Recusar</button>
-    <button type="button" class="btn btn--agua" data-cookies-aceitar>Aceitar</button>
-  </div>
-</div>
 
 <script src="assets/js/main.js" defer></script>
 <script src="https://s.derson.cloud/s.js" data-site="51dd9afd9cdae9f6" defer></script>

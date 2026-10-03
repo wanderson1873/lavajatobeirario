@@ -5,21 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <script>
-  // LGPD: nada é medido antes do visitante aceitar (Consent Mode v2).
+  // Medição liberada desde o primeiro carregamento, sem aviso de cookies (LGPD: legítimo
+  // interesse, explicado em /privacidade). Só fica desligada se o visitante tocou em
+  // "Parar de medir este aparelho" — aí o Tag Manager nem é carregado.
   // Precisa vir ANTES do Tag Manager para valer já no primeiro carregamento.
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  try { window.ljbrMedicaoParada = localStorage.getItem('ljbr-medicao') === 'parado'; } catch (e) {}
   gtag('consent', 'default', {
     ad_storage: 'denied',
     ad_user_data: 'denied',
     ad_personalization: 'denied',
-    analytics_storage: 'denied',
-    wait_for_update: 500
+    analytics_storage: window.ljbrMedicaoParada ? 'denied' : 'granted'
   });
 </script>
 
 <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+<script>if(!window.ljbrMedicaoParada)(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
@@ -469,17 +471,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <a class="wa-flutuante" href="https://wa.me/5531987188203?text=Ol%C3%A1!%20Quero%20saber%20sobre%20a%20lavagem%20de%20motor%20do%20meu%20carro." target="_blank" rel="noopener" aria-label="Chamar no WhatsApp">
   <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4a8 8 0 0 0-6.9 12l-1 4 4.1-1A8 8 0 1 0 12 4z"></path><path d="M9 9.4c0-.3.2-.6.5-.7l1-.3c.3 0 .6.1.7.4l.5 1.1c.1.3 0 .6-.2.8l-.5.4c.4.9 1.1 1.6 2 2l.4-.5c.2-.2.5-.3.8-.2l1.1.5c.3.1.4.4.4.7v1c0 .4-.3.7-.7.7-3-.1-5.5-2.5-6-5.4z"></path></svg>
 </a>
-
-<div class="cookies" data-cookies role="dialog" aria-live="polite" aria-label="Aviso de cookies" hidden>
-  <div class="cookies__texto">
-    <strong>A gente mede o acesso ao site</strong>
-    <p>Usamos o Google Analytics e o Microsoft Clarity para entender como o site é usado: por onde as pessoas chegam, em que botões clicam e até onde rolam a página. Nada de dado pessoal, e você pode recusar sem perder nenhuma função. <a href="/privacidade">Saiba mais</a>.</p>
-  </div>
-  <div class="cookies__acoes">
-    <button type="button" class="btn btn--linha-clara" data-cookies-recusar>Recusar</button>
-    <button type="button" class="btn btn--agua" data-cookies-aceitar>Aceitar</button>
-  </div>
-</div>
 
 <script src="assets/js/main.js" defer></script>
 <script src="https://s.derson.cloud/s.js" data-site="51dd9afd9cdae9f6" defer></script>

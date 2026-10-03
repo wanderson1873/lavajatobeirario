@@ -26,8 +26,8 @@ lavagem-geral.html              Lavagem geral                      │ uma busca
 lavagem-de-chassi.html          Lavagem de chassi                  │ ("<serviço> coronel fabriciano")
 lavagem-de-moto.html            Lavagem de moto                    │
 lavagem-de-motor.html           Lavagem de motor                   ┘
-marketing/          Material de apoio (questionário dos donos, planilha de cadastros,
-                    passo a passo do Tag Manager) — fora da imagem Docker
+../marketing/       Material de apoio (questionário dos donos, planilha de cadastros,
+                    passo a passo do Tag Manager) — fora do repositório, ao lado do site
 robots.txt
 sitemap.xml
 assets/css/styles.css
@@ -146,17 +146,17 @@ para lava jato, o perfil do Google é o que mais traz cliente, e o site reforça
 
 Todas as páginas (inclusive a 404) carregam, nesta ordem, dentro do `<head>`:
 
-1. o **consentimento padrão negado** (Consent Mode v2) — precisa vir antes de tudo;
+1. o **consentimento padrão liberado** (Consent Mode v2, anúncios sempre negados) — precisa vir antes de tudo;
 2. o **Google Tag Manager `GTM-PXQNS4SG`**, que é quem carrega o GA4 (`G-ZM7JJXZCMG`).
 
 Não existe mais `gtag.js` fixo no HTML: **quem cria a tag do Analytics é o Tag Manager**.
 Nunca cole um código de GA4 direto numa página, ou cada visita é contada duas vezes.
 O que ainda falta configurar dentro do painel do Tag Manager está em
-`marketing/gtm-clarity-passo-a-passo.md`.
+`../marketing/gtm-clarity-passo-a-passo.md`.
 
 O **Microsoft Clarity (`ykiggfw89n`)**, que grava a navegação e monta mapa de calor, não
-fica no `<head>`: o `main.js` só injeta o script depois do clique em "Aceitar". Quem recusa
-não baixa nem o arquivo. Por isso ele também **não** deve ser adicionado como tag no Tag
+fica no `<head>`: quem injeta o script é o `main.js`, para todo visitante que não pediu para
+parar de medir. Por isso ele também **não** deve ser adicionado como tag no Tag
 Manager.
 
 Três coisas para acertar no painel do Analytics depois de publicar:
@@ -190,25 +190,26 @@ botão da página veio o clique (`menu-topo`, `topo-da-pagina`, `botao-flutuante
 (pode levar até 24h). A partir daí você vê quantos orçamentos o site gerou por mês, e o
 `local` mostra qual botão puxa mais — dá para cortar os que ninguém usa.
 
-### Aviso de cookies (LGPD)
+### Sem aviso de cookies (LGPD: legítimo interesse)
 
-O site entra com o Analytics e o Clarity **bloqueados** (Consent Mode v2, `analytics_storage: denied`).
-Nenhum cookie é gravado antes do visitante clicar em "Aceitar" no aviso que aparece no
-rodapé. Se ele recusar, o site funciona igual e o Analytics continua sem gravar nada —
-só os eventos acima seguem sendo contados de forma anônima, sem identificar quem é.
+Desde 2 de outubro de 2026 o site **não tem aviso de cookies**: o Analytics e o Clarity medem
+todo visitante desde o primeiro carregamento, com base no legítimo interesse (art. 7º, IX),
+explicado em `/privacidade`. Os sinais de anúncio (`ad_storage` etc.) continuam sempre
+negados — se um dia entrar remarketing (Google Ads, Pixel da Meta), aí precisa voltar um aviso
+pedindo consentimento para essa parte.
 
-A escolha fica no `localStorage` do navegador dele (chave `ljbr-cookies`) e o aviso não
-volta a aparecer. Enquanto o aviso está na tela, o botão flutuante do WhatsApp fica
-escondido, para os dois não se sobreporem no celular.
+Na página de privacidade, o botão **"Parar de medir este aparelho"** grava
+`ljbr-medicao = parado` no `localStorage`. Com isso o `<head>` nega o `analytics_storage` e nem
+carrega o Tag Manager, e o `main.js` não baixa o Clarity. O contador próprio não é afetado: ele
+tem o botão "Não contar minhas visitas" (`ptg_ignorar`). A chave antiga do aviso
+(`ljbr-cookies`) é apagada pelo `main.js` e não vale mais.
 
-Para tirar o aviso, apague o bloco `<div class="cookies">` das 6 páginas — mas aí o certo
-é liberar o consentimento por padrão no `<head>`, ou você fica medindo nada.
+No painel do Clarity, o mascaramento fica em **Strict** (todo texto oculto nas gravações) — a
+página de privacidade promete isso.
 
-A **política de privacidade** está em `/privacidade`, com link no aviso de cookies e no
-rodapé de todas as páginas. O botão "Mudar minha escolha de cookies" reabre o aviso, para o
-visitante revogar o consentimento. Ao adicionar qualquer ferramenta de medição nova
-(Clarity, por exemplo), atualize a página **antes** de publicar a ferramenta. O CNPJ entra
-na seção "Quem é o responsável" quando houver.
+A **política de privacidade** está em `/privacidade`, com link no rodapé de todas as páginas.
+Ao adicionar qualquer ferramenta de medição nova, atualize a página **antes** de publicar a
+ferramenta. O CNPJ entra na seção "Quem é o responsável" quando houver.
 
 ## Conferir se está tudo certo
 
@@ -220,7 +221,7 @@ na seção "Quem é o responsável" quando houver.
 Cada serviço tem página própria, com a mesma estrutura: topo com WhatsApp, "o que inclui",
 cartão de preço e prazo, perguntas frequentes (visíveis e em `FAQPage` no JSON-LD), outros
 serviços e chamada final. O texto saiu das respostas dos donos em
-`marketing/questionario-donos.md` — **nada de tempo ou preço inventado**.
+`../marketing/questionario-donos.md` — **nada de tempo ou preço inventado**.
 
 Ao mudar um preço, atualize em três lugares: a página do serviço (cartão + JSON-LD
 `Service`), a tabela em `servicos.html` e o `hasOfferCatalog` da home.
